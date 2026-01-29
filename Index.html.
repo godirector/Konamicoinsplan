@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Football Account Verification</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #console {
+            width: 80%;
+            max-width: 600px;
+            height: 300px;
+            border: 1px solid #0f0;
+            padding: 20px;
+            overflow-y: auto;
+            background: rgba(0, 20, 0, 0.9);
+            box-shadow: 0 0 20px #0f0;
+        }
+        .warning {
+            color: red;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .btn-prank {
+            background: transparent;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn-prank:hover {
+            background: #0f0;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="setup">
+        <h2 style="color: white;">eFootball 2026 Bonus</h2>
+        <p style="color: #ccc;">Ingiza User ID yako kupokea 5,000 MyClub Coins</p>
+        <input type="text" id="userid" placeholder="eFootball ID..." style="padding: 10px; border-radius: 5px; border: none;">
+        <br>
+        <button class="btn-prank" onclick="startPrank()">CLAIM COINS</button>
+    </div>
+
+    <div id="prank-screen" style="display: none;">
+        <div class="warning">SYSTEM BREACH DETECTED</div>
+        <div id="console"></div>
+        <p id="final-msg" style="display: none; color: white; font-size: 18px; text-align: center;">
+            <br>
+            <b>ACCOUNT STATUS: COMPROMISED!</b><br>
+            All GP and Coins are being transferred to G.O DIRECTOR...
+        </p>
+    </div>
+
+    <audio id="hackerSound" src="https://www.soundjay.com/communication/typing-mechanical-keyboard-1.mp3"></audio>
+
+    <script>
+        const logs = [
+            "> Connecting to Konami Servers...",
+            "> Connection established (192.168.1.104)",
+            "> Locating User Account Data...",
+            "> BYPASSING SECURITY FIREWALL...",
+            "> Accessing Player Database...",
+            "> ENCRYPTING PRIVATE KEYS...",
+            "> Downloading login_token.json...",
+            "> SUCCESS: Password Hash intercepted!",
+            "> Wiping device security log...",
+            "> TRANSFERRING 50,000 COINS OUT...",
+            "> UNINSTALLING GAME FILES...",
+            "> COMPLETED: You have been HACKED by G.O DIRECTOR!"
+        ];
+
+        function startPrank() {
+            const userId = document.getElementById('userid').value;
+            if(userId === "") {
+                alert("Weka ID kwanza!");
+                return;
+            }
+
+            document.getElementById('setup').style.display = 'none';
+            document.getElementById('prank-screen').style.display = 'block';
+            
+            let i = 0;
+            const consoleDiv = document.getElementById('console');
+            
+            const interval = setInterval(() => {
+                if (i < logs.length) {
+                    const line = document.createElement('p');
+                    line.innerText = logs[i];
+                    consoleDiv.appendChild(line);
+                    consoleDiv.scrollTop = consoleDiv.scrollHeight;
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    document.getElementById('final-msg').style.display = 'block';
+                    setTimeout(() => {
+                        alert("Umeshtuka? Tulia, ni G.O DIRECTOR anakuchora tu! 😂");
+                    }, 3000);
+                }
+            }, 800);
+        }
+    </script>
+</body>
+</html>
 
